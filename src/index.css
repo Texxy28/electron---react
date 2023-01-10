@@ -3,6 +3,11 @@
   margin: 0;
 }
 
-h1 {
-  color: #444fde;
+body {
+  box-sizing: border-box;
+  background: #fff 100vh;
+}
+
+#main_div {
+  display: flex;
 }

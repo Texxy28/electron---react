@@ -1,16 +1,14 @@
 import React from 'react'
+import { OptionsBar, SideBar } from './components'
 
 const App = () => {
 
     return (
 
-        <div>
+        <div id='main_div'>
 
-            <h3>dasjdghqwle</h3>
-            <h1>Hodas</h1>
-            <button onClick={() => {
-                electron.notificationApi.sendNotification("Hola");
-            }}>Notify</button>
+            <SideBar />
+            <OptionsBar />
 
         </div>
   

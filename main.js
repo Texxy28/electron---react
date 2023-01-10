@@ -17,6 +17,7 @@ const createWindow = () => {
         }
     });
     mainWindow.maximize();
+    //mainWindow.setMenu(null);
     mainWindow.show();
 
     mainWindow.loadFile('./public/index.html');

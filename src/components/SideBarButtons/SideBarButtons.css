@@ -1,0 +1,27 @@
+.sideBarButtons_div {
+  background: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}
+
+.sideBarButtons_div:hover div span{
+  color: #ffffff;
+}
+
+.sideBarButtons_div:hover .icon svg path {
+  color: #ffffff;
+}
+
+.selected {
+  background: #252627;
+}
+
+.sideBarButtons_div div span {
+  color: #cbcbcc;
+}
