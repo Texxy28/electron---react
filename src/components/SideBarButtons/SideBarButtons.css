@@ -1,12 +1,11 @@
 .sideBarButtons_div {
   background: none;
   width: 100%;
+  height: 85px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
   cursor: pointer;
 }
 
@@ -24,4 +23,56 @@
 
 .sideBarButtons_div div span {
   color: #cbcbcc;
+}
+
+.selected::before {
+  content: ' ';
+  position: absolute;
+  top: -19px;
+  left: 80px;
+  background: radial-gradient(circle 20px at top left, transparent 95%, #252627) top left;
+  width: 20px;
+  height: 20px;
+}
+
+.selected::after {
+  content: ' ';
+  position: absolute;
+  top: 85px;
+  left: 80px;
+  background: radial-gradient(circle 20px at bottom left, transparent 95%, #252627) bottom left;
+  width: 20px;
+  height: 20px;
+}
+
+.sideBarButtons_div:nth-child(1) ~ .selected::before {
+  transform: translateY(calc(85px * 1));
+}
+.sideBarButtons_div:nth-child(2) ~ .selected::before {
+  transform: translateY(calc(85px * 2));
+}
+.sideBarButtons_div:nth-child(3) ~ .selected::before {
+  transform: translateY(calc(85px * 3));
+}
+.sideBarButtons_div:nth-child(4) ~ .selected::before {
+  transform: translateY(calc(85px * 4));
+}
+.sideBarButtons_div:nth-child(5) ~ .selected::before {
+  transform: translateY(calc(85px * 5));
+}
+
+.sideBarButtons_div:nth-child(1) ~ .selected::after {
+  transform: translateY(calc(85px * 1));
+}
+.sideBarButtons_div:nth-child(2) ~ .selected::after {
+  transform: translateY(calc(85px * 2));
+}
+.sideBarButtons_div:nth-child(3) ~ .selected::after {
+  transform: translateY(calc(85px * 3));
+}
+.sideBarButtons_div:nth-child(4) ~ .selected::after {
+  transform: translateY(calc(85px * 4));
+}
+.sideBarButtons_div:nth-child(5) ~ .selected::after {
+  transform: translateY(calc(85px * 5));
 }

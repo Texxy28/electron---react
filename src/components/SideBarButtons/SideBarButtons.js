@@ -4,6 +4,9 @@ import './SideBarButtons.css'
 
 const SideBarButtons = ({ logo, nombre, selectedItem, setSelectedItem }) => {
 
+    let div;
+    let coords;
+
     return (
 
         <div 
