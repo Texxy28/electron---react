@@ -10,9 +10,12 @@ const SideBarButtons = ({ logo, nombre, selectedItem, setSelectedItem }) => {
     return (
 
         <div 
-            className={selectedItem === nombre ? 'sideBarButtons_div selected' : 'sideBarButtons_div'}
+            className='sideBarButtons_div'
             onClick={() => setSelectedItem(nombre)}
         >
+            {selectedItem === nombre && (
+                <div className='selected'></div>
+            )}
             
             <div className='icon'>
                 {logo}
