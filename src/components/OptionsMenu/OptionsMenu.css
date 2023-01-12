@@ -2,16 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 350px;
   flex-direction: column;
 }
 
 .optionsmenu_div-div {
-  display: flex;
-  flex-direction: row;
+  width: 280px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
 
 .optionsmenu_div-option {
-  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -webkit-fill-available;
 }
 
 .optionsmenu_div-option span {
@@ -23,10 +29,9 @@
   background: #9e77f3;
   margin-top: 25px;
   height: 4px;
-  width: 119.3px;
+  width: 4px;
   top: 72px;
-  left: 0;
-  margin-left: 13.5px;
+  left: 0px;
   border-radius: 10px;
   transition: transform 0.5s ease, width 1s ease;
 }

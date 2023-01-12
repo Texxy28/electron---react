@@ -7,7 +7,7 @@ const DesignOptions = () => {
     const options = [
         'Template',
         'Layout',
-        'Styles',
+        'Styles'
     ]
 
     return (
