@@ -8,8 +8,8 @@ import { VscFileSubmodule } from 'react-icons/vsc'
 import { IoIosKeypad } from 'react-icons/io'
 
 import SideBarButtons from '../SideBarButtons/SideBarButtons'
+import OptionsBar from '../OptionsBar/OptionsBar'
 import './SideBar.css'
-import { icons } from 'react-icons'
 
 const SideBar = () => {
 
@@ -45,18 +45,33 @@ const SideBar = () => {
     return (
 
         <div className='sidebar_div'>
+            
+            <div className='sidebar_div-buttons'>
 
-            {items.map((boton) => {
-                return (
-                    <SideBarButtons
-                        key={boton.title}
-                        logo={boton.logo}
-                        nombre={boton.title}
-                        selectedItem={selectedItem}
-                        setSelectedItem={setSelectedItem}
-                    />
-                )
-            })}
+                {items.map((boton) => {
+                    return (
+
+                        <SideBarButtons
+                            key={boton.title}
+                            logo={boton.logo}
+                            nombre={boton.title}
+                            selectedItem={selectedItem}
+                            setSelectedItem={setSelectedItem}
+                        />
+
+                    )
+                })}
+
+            </div>
+
+            <div className='sidebar_div-options'>
+
+                <OptionsBar 
+                    selectedItem={selectedItem}
+                />
+
+            </div>
+
 
         </div>
         

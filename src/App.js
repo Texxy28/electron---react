@@ -1,5 +1,5 @@
 import React from 'react'
-import { OptionsBar, SideBar } from './components'
+import { SideBar } from './components'
 
 const App = () => {
 
@@ -8,7 +8,6 @@ const App = () => {
         <div id='main_div'>
 
             <SideBar />
-            <OptionsBar />
 
         </div>
   

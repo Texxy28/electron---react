@@ -1,6 +1,10 @@
 .sidebar_div {
+  display: flex;
+}
+
+.sidebar_div-buttons { 
   width: 100px;
   height: 97.4vh;
   background: #18191b;
-  padding-top: 20px;
+   padding-top: 20px; 
 }

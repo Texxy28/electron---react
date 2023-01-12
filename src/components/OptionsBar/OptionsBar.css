@@ -1,4 +1,6 @@
 .optionsBar_div {
+  position: absolute;
   background: #252627;
-  width: 300px;
+  width: 350px;
+  height: 100%;
 }
