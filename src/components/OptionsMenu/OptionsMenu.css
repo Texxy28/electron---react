@@ -1,0 +1,32 @@
+.optionsmenu_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.optionsmenu_div-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.optionsmenu_div-option {
+  padding: 0 30px;
+}
+
+.optionsmenu_div-option span {
+  color: #c5c6c6;
+}
+
+.optionsmenu_div-sub {
+  position: absolute;
+  background: #9e77f3;
+  margin-top: 25px;
+  height: 4px;
+  width: 119.3px;
+  top: 72px;
+  left: 0;
+  margin-left: 13.5px;
+  border-radius: 10px;
+  transition: transform 0.5s ease, width 1s ease;
+}

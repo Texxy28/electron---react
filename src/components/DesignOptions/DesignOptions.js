@@ -1,7 +1,14 @@
 import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
+import OptionsMenu from '../OptionsMenu/OptionsMenu'
 
 const DesignOptions = () => {
+
+    const options = [
+        'Template',
+        'Layout',
+        'Styles',
+    ]
 
     return (
 
@@ -11,6 +18,10 @@ const DesignOptions = () => {
                 placeholder='Search Presentation templates'
                 white={false}
                 settings={true}
+            />
+
+            <OptionsMenu 
+                options={options}
             />
 
         </div>
