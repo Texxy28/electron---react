@@ -25,11 +25,10 @@
 }
 
 .optionsmenu_div-sub {
-  position: absolute;
+  position: fixed;
   background: #9e77f3;
   margin-top: 25px;
-  height: 4px;
-  width: 4px;
+  height: 2px;
   top: 72px;
   left: 0px;
   border-radius: 10px;

@@ -13,9 +13,9 @@ const OptionsMenu = ({ options }) => {
         if (hola) {
             const holaRect = hola.getBoundingClientRect();
             const linea = document.querySelector('.optionsmenu_div-sub');
-            // linea.style.transform = `translateX(calc(${holaRect.left - holaRect.width}px))`;
-            // linea.style.width = `${holaRect.width}px`;
-            linea.style.left = `${holaRect.left - holaRect.width}px`
+            linea.style.transform = `translateX(calc(${holaRect.left}px))`;
+            console.log(holaRect.right, holaRect.left, holaRect.width);
+            linea.style.width = `${holaRect.width}px`;
         } else {
             console.log('no');
         }
@@ -44,12 +44,12 @@ const OptionsMenu = ({ options }) => {
                         </div>
                     )
                 })}
+                
+                <div 
+                    className='optionsmenu_div-sub'
+                ></div>
 
             </div>
-
-            <div 
-                className='optionsmenu_div-sub'
-            ></div>
 
         </div>
 
