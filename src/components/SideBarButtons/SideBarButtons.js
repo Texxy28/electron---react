@@ -14,10 +14,14 @@ const SideBarButtons = ({ logo, nombre, selectedItem, setSelectedItem }) => {
                 <div className='selected'></div>
             )}
             
-            <div className='icon'>
-                {logo}
+            <div 
+                className={`item ${nombre === selectedItem ? 'selectedItem' : ''}`}
+            >
+                <div className='icon'>
+                    {logo}
+                </div>
+                <div><span>{nombre}</span></div>
             </div>
-            <div><span>{nombre}</span></div>
 
         </div>
 

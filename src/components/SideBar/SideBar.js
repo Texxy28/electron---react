@@ -15,27 +15,27 @@ const SideBar = () => {
 
     const items = [
         {
-            logo: <SiBlueprint color='#cbcbcc' size={30}/>,
+            logo: <SiBlueprint color='#cbcbcc' size={20}/>,
             title: 'Design'
         },
         {
-            logo: <SiMaterialdesignicons color='#cbcbcc' size={30}/>,
+            logo: <SiMaterialdesignicons color='#cbcbcc' size={20}/>,
             title: 'Elements'
         },
         {
-            logo: <AiOutlineCloudUpload color='#cbcbcc' size={30}/>,
+            logo: <AiOutlineCloudUpload color='#cbcbcc' size={20}/>,
             title: 'Uploads'
         },
         {
-            logo: <RxText color='#cbcbcc' size={30}/>,
+            logo: <RxText color='#cbcbcc' size={20}/>,
             title: 'Text'
         },
         {
-            logo: <VscFileSubmodule color='#cbcbcc' size={30}/>,
+            logo: <VscFileSubmodule color='#cbcbcc' size={20}/>,
             title: 'Projects'
         },
         {
-            logo: <IoIosKeypad color='#cbcbcc' size={30}/>,
+            logo: <IoIosKeypad color='#cbcbcc' size={20}/>,
             title: 'Apps'
         }
     ]

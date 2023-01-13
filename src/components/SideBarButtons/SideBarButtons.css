@@ -38,8 +38,15 @@
   animation: entradaSelected 0.3s ease 0s forwards;
 }
 
+.selected div span {
+  color: #fff;
+}
+
 .sideBarButtons_div div span {
   color: #cbcbcc;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .selected::before {
@@ -62,6 +69,21 @@
   background: radial-gradient(circle 20px at bottom left, transparent 95%, #252627) bottom left;
   width: 20px;
   height: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.selectedItem div span {
+  color: #fff;
+}
+
+.selectedItem div svg  path {
+  color: #fff;
 }
 
 @keyframes entradaSelected {

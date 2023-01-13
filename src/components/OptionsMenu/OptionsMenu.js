@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 import './OptionsMenu.css'
 
-const OptionsMenu = ({ options }) => {
+const OptionsMenu = ({ options , getOption}) => {
 
     const [selectedOption, setSelectedOption] = useState(options[0])
 
@@ -16,6 +16,7 @@ const OptionsMenu = ({ options }) => {
             linea.style.transform = `translateX(calc(${holaRect.left}px))`;
             console.log(holaRect.right, holaRect.left, holaRect.width);
             linea.style.width = `${holaRect.width}px`;
+            getOption(selectedOption)
         } else {
             console.log('no');
         }
@@ -38,7 +39,7 @@ const OptionsMenu = ({ options }) => {
                             onClick={() => {
                                 setSelectedOption(option)
                             }}
-                            className={`optionsmenu_div-option ${option}`}
+                            className={`optionsmenu_div-option ${option===selectedOption ? 'selectedOp': ''} ${option}`}
                         >
                             <span>{option}</span>
                         </div>
