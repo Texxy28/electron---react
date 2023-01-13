@@ -92,7 +92,7 @@ const DesignOptions = () => {
                 placeholder={searchPlaceholders}
                 selectedOption={selectedOption}
                 white={false}
-                settings={false}
+                settings={true}
             />
 
             <OptionsMenu 

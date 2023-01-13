@@ -50,3 +50,10 @@
 .searchbar_div-settingsicon:hover {
   background: #545556;
 }
+
+.searchbar_div-xicon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
