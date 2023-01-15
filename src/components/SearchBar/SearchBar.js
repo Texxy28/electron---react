@@ -44,10 +44,12 @@ const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
             setToogleX(false)
             setBordePadre(true)
             hola.style.border = '1px solid #8b3dff'
+            hola.style.background = '#18191b'
         } else if (input.value.length !== 0) {
             setToogleX(true)
             setBordePadre(false)
             hola.style.border = '1px solid #424345'
+            hola.style.background = '#424345'
         }
     }
     
