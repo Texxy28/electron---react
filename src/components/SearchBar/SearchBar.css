@@ -11,6 +11,14 @@
   border-radius: 5px;
 }
 
+.white {
+  background: #fff;
+}
+
+.black {
+  background: #18191b;
+}
+
 .searchbar_div:hover {
   border: #cfcfcf solid 1px;
 }
@@ -41,6 +49,8 @@
 }
 
 .searchbar_div-settingsicon {
+  width: 25px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,8 +62,14 @@
 }
 
 .searchbar_div-xicon {
+  width: 25px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.searchbar_div-xicon:hover {
+  background: #545556;
 }
