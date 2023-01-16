@@ -17,10 +17,38 @@ const DesignOptions = () => {
         {
             type: 'Template',
             listOptions: [
-                'History',
-                'Science',
-                'Blue',
-                'Business',
+                {
+                    listType: 'History',
+                    listTypeOptions: [
+                        'History1',
+                        'History2',
+                        'History3'
+                    ]
+                },
+                {
+                    listType: 'Sciense',
+                    listTypeOptions: [
+                        'Sciense1',
+                        'Sciense2',
+                        'Sciense3'
+                    ]
+                },
+                {
+                    listType: 'Blue',
+                    listTypeOptions: [
+                        'Blue1',
+                        'Blue2',
+                        'Blue3'
+                    ]
+                },
+                {
+                    listType: 'Business',
+                    listTypeOptions: [
+                        'Business1',
+                        'Business2',
+                        'Business3'
+                    ]
+                },
                 'Green',
                 'Food',
                 'School',
@@ -79,10 +107,17 @@ const DesignOptions = () => {
     ]
 
     const [selectedOption, setSelectedOption] = useState(options[0])
-
+    const [searchOption, setSearchOption] = useState('')
+    
     const getOption = (option) => {
         setSelectedOption(option)
     }
+
+    const getSearchOption = (option) => {
+        setSearchOption(option)
+    }
+
+    console.log(searchOption)
 
     return (
 
@@ -91,8 +126,10 @@ const DesignOptions = () => {
             <SearchBar 
                 placeholder={searchPlaceholders}
                 selectedOption={selectedOption}
+                searchOption={searchOption}
                 white={false}
                 settings={true}
+                getSearchOption={getSearchOption}
             />
 
             <OptionsMenu 
@@ -102,7 +139,9 @@ const DesignOptions = () => {
 
             <SearchOptions 
                 searchOptions={searchOptions}
+                selectedSearchOption={searchOption}
                 selectedOption={selectedOption}
+                getSearchOption={getSearchOption}
             />
 
         </div>

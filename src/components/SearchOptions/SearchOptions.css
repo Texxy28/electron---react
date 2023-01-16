@@ -1,14 +1,17 @@
 .searchoptions_div {
   margin-top: 15px;
+  margin: 10px 25px;
+}
+
+.searchoptions_div-div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   overflow-x: scroll;
-  margin: 10px 25px;
   user-select: none;
 }
 
-.searchoptions_div::-webkit-scrollbar {
+.searchoptions_div-div::-webkit-scrollbar {
   display: none;
 }
 
@@ -35,4 +38,32 @@
 
 .searchoptions_div-searchoption:hover {
   background: #464748;
+}
+
+.searchoptions_div-move {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1000;
+  height: 40px;
+  width: 20px;
+}
+
+.searchoptions_div-moveLeft {
+  top: 119px;
+  left: 25px;
+  background: rgb(2,0,36);
+  background: linear-gradient(270deg, rgba(2,0,36,0) 0%, #252627 100%);
+}
+
+.searchoptions_div-moveRight {
+  top: 119px;
+  left: 305px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,0) 0%, #252627 100%);
+}
+
+.searchoptions_div-move svg path {
+  color: #fff;
 }

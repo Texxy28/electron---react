@@ -7,10 +7,12 @@ import { IoMdClose } from 'react-icons/io'
 
 import './SearchBar.css'
 
-const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
+const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings, getSearchOption }) => {
 
     const filterByType = (item) => {
         
+        console.log(item)
+
         if (item.type === selectedOption) {
             return true;
         }
@@ -25,6 +27,7 @@ const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
     const [bordePadre, setBordePadre] = useState(false)
     const [selected, setSelected] = useState(false)
     const [first, setfirst] = useState(false)
+    const [escrito, setEscrito] = useState(false)
 
     const eliminarValue = () => {
         const input = document.querySelector('.searchbar_div-input');
@@ -36,23 +39,22 @@ const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
         const input = document.querySelector('.searchbar_div-input');
         input.focus();
     }
-        
-    const value = () => {
+
+    const value = (change = true) => {
         const input = document.querySelector('.searchbar_div-input');
         const hola = document.querySelector('.searchbar_div');
         if (input.value.length === 0) {
-            setToogleX(false)
-            setBordePadre(true)
-            hola.style.border = '1px solid #8b3dff'
-            hola.style.background = '#18191b'
+            if (change) {
+                hola.style.background = '#18191b'
+            }
+            return false
         } else if (input.value.length !== 0) {
-            setToogleX(true)
-            setBordePadre(false)
-            hola.style.border = '1px solid #424345'
-            hola.style.background = '#424345'
+            if (change) {
+                hola.style.background = '#252627'
+            }
+            return true
         }
     }
-    
 
     useEffect(() => {
 
@@ -62,14 +64,26 @@ const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
         if (hola) {
             const column = hola.style.gridTemplateColumns;
             const columns = column.split(/(?:)/)
-            if (toogleX && columns[7] === '3') {
-                const num = parseInt(columns[7]) + 1;
-                hola.style.gridTemplateColumns = `repeat(${num},1fr)`  
-                input.style.width = '180px'  
-            } else if (!toogleX && columns[7] === '4') {
-                const num = parseInt(columns[7]) - 1;
-                hola.style.gridTemplateColumns = `repeat(${num},1fr)` 
-                input.style.width = '220px'
+            if (settings) {
+                if (toogleX && columns[7] === '3') {
+                    const num = parseInt(columns[7]) + 1;
+                    hola.style.gridTemplateColumns = `repeat(${num},1fr)`  
+                    input.style.width = '180px'  
+                } else if (!toogleX && columns[7] === '4') {
+                    const num = parseInt(columns[7]) - 1;
+                    hola.style.gridTemplateColumns = `repeat(${num},1fr)` 
+                    input.style.width = '220px'
+                }
+            } else if (!settings) {
+                if (toogleX && columns[7] === '2') {
+                    const num = parseInt(columns[7]) + 1;
+                    hola.style.gridTemplateColumns = `repeat(${num},1fr)`  
+                    input.style.width = '220px'  
+                } else if (!toogleX && columns[7] === '3') {
+                    const num = parseInt(columns[7]) - 1;
+                    hola.style.gridTemplateColumns = `repeat(${num},1fr)` 
+                    input.style.width = '260px'
+                }
             }
         }
 
@@ -79,20 +93,51 @@ const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
       
         const hola = document.querySelector('.searchbar_div');
         if (bordePadre && hola) {
-            hola.style.border = '1px solid #8b3dff'
+            if (value()) {
+                hola.style.border = '1px solid #545556'
+            } else {
+                hola.style.border = '1px solid #8b3dff'
+            }
         } else if (!bordePadre && hola) {
-            console.log('dasd')
-            hola.style.border = '1px solid #424345'
+            if (value()) {
+                hola.style.border = '1px solid #545556'
+            } else {
+                hola.style.border = '1px solid #424345'
+            }
         }
 
     }, [bordePadre])
+
+    useEffect(() => {
+
+        const hola = document.querySelector('.searchbar_div')
+
+        if (escrito && !selected) {
+            hola.style.background = '#18191b'
+            hola.style.border = '1px solid #424345'
+        }
+
+    }, [escrito])
+
+    useEffect(() => {
+
+        const hola = document.querySelector('.searchbar_div-input')
+
+        if (hola) {
+            hola.value = searchOption
+            if (value(false)) {
+                setToogleX(true)
+            }
+        }
+
+    }, [searchOption])
 
     return (
         
         <div 
             className={`searchbar_div ${white ? 'white' : 'black'}`}
             style={{
-                border: first ? !selected ? '1px solid #cfcfcf' : '' : '',
+                border: first && !selected && '1px solid #cfcfcf',
                 gridTemplateColumns: settings === true ? 'repeat(3,1fr)' : 'repeat(2,1fr)'
             }} 
             onMouseEnter={
@@ -117,26 +162,38 @@ const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
                 }}
                 onKeyUp={
                     () => {
-                        value()
+                        if (!value()) {
+                            setToogleX(false)
+                            setBordePadre(true)
+                        } else {
+                            setToogleX(true)
+                            setBordePadre(false)
+                        }
                     }
                 }
                 onKeyDown={
                     () => {
-                        value()
+                        if (!value()) {
+                            setToogleX(false)
+                            setBordePadre(true)
+                        } else {
+                            setToogleX(true)
+                            setBordePadre(false)
+                        }
                     }
                 }
                 onFocus={
                     () => {
-                        value()
                         setBordePadre(true)
                         setSelected(true)
+                        setEscrito(false)
                     } 
                 }
                 onBlur={
                     () => {
-                        value()
                         setBordePadre(false)
                         setSelected(false)
+                        setEscrito(true)
                     }
                 }
             />
@@ -147,6 +204,8 @@ const SearchBar = ({ placeholder, selectedOption, white, settings }) => {
                                 () => {
                                     eliminarValue()
                                     selectInput()
+                                    value()
+                                    getSearchOption('')
                                 }
                             }
                         >
