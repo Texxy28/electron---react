@@ -10,8 +10,6 @@ import './SearchBar.css'
 const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings, getSearchOption }) => {
 
     const filterByType = (item) => {
-        
-        console.log(item)
 
         if (item.type === selectedOption) {
             return true;
@@ -43,6 +41,9 @@ const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings,
     const value = (change = true) => {
         const input = document.querySelector('.searchbar_div-input');
         const hola = document.querySelector('.searchbar_div');
+        if (input) {
+            getSearchOption(input.value)
+        }
         if (input.value.length === 0) {
             if (change) {
                 hola.style.background = '#18191b'

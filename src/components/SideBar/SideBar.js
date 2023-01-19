@@ -40,7 +40,7 @@ const SideBar = () => {
         }
     ]
 
-    const [selectedItem, setSelectedItem] = useState(items[0].title);
+    const [selectedItem, setSelectedItem] = useState(items[1].title);
 
     return (
 

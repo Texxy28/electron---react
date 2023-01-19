@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 import './OptionsMenu.css'
 
-const OptionsMenu = ({ options , getOption}) => {
+const OptionsMenu = ({ options , getOption, layoutType, searchOption }) => {
 
     const [selectedOption, setSelectedOption] = useState(options[0])
 
@@ -18,7 +18,7 @@ const OptionsMenu = ({ options , getOption}) => {
             linea.style.width = `${holaRect.width}px`;
             getOption(selectedOption)
         } else {
-            console.log('no');
+            return
         }
     }, [selectedOption]);
 
@@ -26,31 +26,66 @@ const OptionsMenu = ({ options , getOption}) => {
 
         <div className='optionsmenu_div'>
             
-            <div className='optionsmenu_div-div'
-                style={{
-                    gridTemplateColumns: `repeat(${options.length}, 1fr)`
-                }}
-            >
+            {
+                layoutType === 'normal' && (
+                    <div className='optionsmenu_div-div'
+                        style={{
+                            gridTemplateColumns: `repeat(${options.length}, 1fr)`
+                        }}
+                    >
 
-                {options.map((option) => {
-                    return (
+                        {options.map((option) => {
+                            return (
+                                <div 
+                                    key={option} 
+                                    onClick={() => {
+                                        setSelectedOption(option)
+                                    }}
+                                    className={`optionsmenu_div-option ${option===selectedOption ? 'selectedOp': ''} ${option}`}
+                                >
+                                    <span>{option}</span>
+                                </div>
+                            )
+                        })}
+                        
                         <div 
-                            key={option} 
-                            onClick={() => {
-                                setSelectedOption(option)
+                            className='optionsmenu_div-sub'
+                        ></div>
+
+                    </div>
+                )
+            } 
+
+            {
+                layoutType === 'hidden' && (
+                    searchOption !== '' && (
+                        <div className='optionsmenu_div-div'
+                            style={{
+                                gridTemplateColumns: `repeat(${options.length}, 1fr)`
                             }}
-                            className={`optionsmenu_div-option ${option===selectedOption ? 'selectedOp': ''} ${option}`}
                         >
-                            <span>{option}</span>
+                            {options.map((option) => {
+                                return (
+                                    <div 
+                                        key={option} 
+                                        onClick={() => {
+                                            setSelectedOption(option)
+                                        }}
+                                        className={`optionsmenu_div-option ${option===selectedOption ? 'selectedOp': ''} ${option}`}
+                                    >
+                                        <span>{option}</span>
+                                    </div>
+                                )
+                            })}
+                            
+                            <div 
+                                className='optionsmenu_div-sub'
+                            ></div>
+
                         </div>
                     )
-                })}
-                
-                <div 
-                    className='optionsmenu_div-sub'
-                ></div>
-
-            </div>
+                )
+            }
 
         </div>
 
