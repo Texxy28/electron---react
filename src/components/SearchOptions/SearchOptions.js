@@ -4,7 +4,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
 import './SearchOptions.css'
 
-const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selectedSearchOption, layoutType }) => {
+const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selectedSearchOption, layoutType, getOculto, oculto }) => {
 
     const [moveRight, setMoveRight] = useState(true)
     const [moveLeft, setMoveLeft] = useState(false)
@@ -52,11 +52,7 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
             }
         }
     }
-
-    const setValue = (option) => {
-        getSearchOption(option)
-    }
-
+    
     const movimientoX = () => {
         const hola = document.querySelector('.searchoptions_div-div')
         if (hola && hola.scrollLeft > 0) {
@@ -86,8 +82,21 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
         }
 
     }, [movido])
-    
-    console.log(result)
+
+    useEffect(() => {
+
+        const hola = document.querySelector('.searchoptions_div-div');
+        if (hola && hola.scrollLeft > 0) {
+            setMoveLeft(true)
+        } else if (hola && hola.scrollLeft <= 0) {
+            setMoveLeft(false)
+        } 
+        if (hola && hola.scrollLeft >= hola.scrollWidth-302) {
+            setMoveRight(false)
+        } else if (hola && hola.scrollLeft < hola.scrollWidth-302) {
+            setMoveRight(true)
+        }
+    })
 
     return (
 
@@ -97,12 +106,15 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
 
             <div 
                 className='searchoptions_div-div'
+                style={{
+                    height: layoutType === 'hidden' ? '50px' : '70px'
+                }}
                 onScroll={() => {
                     movimientoX()
                 }}
             >
                 {result2.length <= 0 && result[0].listOptions.map((options) => {
-                    return (
+                        return (
                             <div 
                                     className={`searchoptions_div-searchoption ${options.listType}`} 
                                     key={options.listType}
@@ -110,7 +122,10 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
                                         marginLeft: result[0].type === searchOptions[searchOptions.length - 1].type ? '0' : ''
                                     }}
                                     onClick={() => {
-                                        setValue(options.listType)
+                                        getSearchOption(options.listType)
+                                        if (layoutType === 'hidden') {
+                                            getOculto(false)
+                                        }
                                         setMovido(true)
                                     }}
                             >
@@ -129,7 +144,10 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
                                     marginLeft: result[0].type === searchOptions[searchOptions.length - 1].type ? '0' : ''
                                 }}
                                 onClick={() => {
-                                    setValue(option)
+                                    getSearchOption(option)
+                                    if (layoutType === 'hidden') {
+                                        getOculto(false)
+                                    }
                                     setMovido(true)
                                 }}
                             >
@@ -147,7 +165,7 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
                         }}
                         className='searchoptions_div-move searchoptions_div-moveLeft'
                         style={{
-                            top: layoutType === 'hidden' && '100px'
+                            top: layoutType === 'hidden' ? oculto ? '70px' : '114px' : '125px',
                         }}
                     >
                         <AiOutlineLeft />
@@ -161,7 +179,7 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
                         }}
                         className='searchoptions_div-move searchoptions_div-moveRight'
                         style={{
-                            top: layoutType === 'hidden' && '100px'
+                            top: layoutType === 'hidden' ? oculto ? '70px' : '114px' : '125px',
                         }}
                     >
                         <AiOutlineRight />

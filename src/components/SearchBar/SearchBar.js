@@ -7,7 +7,7 @@ import { IoMdClose } from 'react-icons/io'
 
 import './SearchBar.css'
 
-const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings, getSearchOption }) => {
+const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings, getSearchOption, getOculto, layoutType }) => {
 
     const filterByType = (item) => {
 
@@ -41,9 +41,6 @@ const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings,
     const value = (change = true) => {
         const input = document.querySelector('.searchbar_div-input');
         const hola = document.querySelector('.searchbar_div');
-        if (input) {
-            getSearchOption(input.value)
-        }
         if (input.value.length === 0) {
             if (change) {
                 hola.style.background = '#18191b'
@@ -154,50 +151,60 @@ const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings,
         >
             
             <div className='searchbar_div-searchicon' onClick={() => selectInput()}><BiSearch size={20} color='#d6d6d7' /></div>
-            <input 
-                className='searchbar_div-input'
-                type='text' 
-                placeholder={result[0].placeholder} 
-                style={{
-                    width: settings === true ? '220px' : '262px'
+            <form 
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    if (e.target[0].value.length !== 0)  {
+                        getSearchOption(e.target[0].value)
+                        if (layoutType === 'hidden') {
+                            getOculto(false)
+                        }
+                    }
                 }}
-                onKeyUp={
-                    () => {
-                        if (!value()) {
-                            setToogleX(false)
-                            setBordePadre(true)
-                        } else {
-                            setToogleX(true)
-                            setBordePadre(false)
+            >
+                <input 
+                    className='searchbar_div-input'
+                    type='text' 
+                    placeholder={result[0].placeholder} 
+                    style={{
+                        width: settings === true ? '220px' : '262px'
+                    }}
+                    onKeyUp={
+                        () => {
+                            if (!value()) {
+                                setBordePadre(true)
+                            } else {
+                                setToogleX(true)
+                                setBordePadre(false)
+                            }
                         }
                     }
-                }
-                onKeyDown={
-                    () => {
-                        if (!value()) {
-                            setToogleX(false)
-                            setBordePadre(true)
-                        } else {
-                            setToogleX(true)
-                            setBordePadre(false)
+                    onKeyDown={
+                        () => {
+                            if (!value()) {
+                                setBordePadre(true)
+                            } else {
+                                setToogleX(true)
+                                setBordePadre(false)
+                            }
                         }
                     }
-                }
-                onFocus={
-                    () => {
-                        setBordePadre(true)
-                        setSelected(true)
-                        setEscrito(false)
-                    } 
-                }
-                onBlur={
-                    () => {
-                        setBordePadre(false)
-                        setSelected(false)
-                        setEscrito(true)
+                    onFocus={
+                        () => {
+                            setBordePadre(true)
+                            setSelected(true)
+                            setEscrito(false)
+                        } 
                     }
-                }
-            />
+                    onBlur={
+                        () => {
+                            setBordePadre(false)
+                            setSelected(false)
+                            setEscrito(true)
+                        }
+                    }
+                />
+            </form>
 
             {toogleX && <div 
                             className='searchbar_div-xicon' 
@@ -207,6 +214,9 @@ const SearchBar = ({ placeholder, searchOption, selectedOption, white, settings,
                                     selectInput()
                                     value()
                                     getSearchOption('')
+                                    if (layoutType == 'hidden') {
+                                        getOculto(true)
+                                    }
                                 }
                             }
                         >

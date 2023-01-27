@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react'
 
 import './OptionsMenu.css'
 
-const OptionsMenu = ({ options , getOption, layoutType, searchOption }) => {
+const OptionsMenu = ({ options , getOption, layoutType, searchOption, oculto }) => {
 
-    const [selectedOption, setSelectedOption] = useState(options[0])
+    const [selectedOption, setSelectedOption] = useState(options[0]);
 
     useEffect(() => {
         const hola = document.querySelector(`.${selectedOption}`);
@@ -20,11 +20,15 @@ const OptionsMenu = ({ options , getOption, layoutType, searchOption }) => {
         } else {
             return
         }
-    }, [selectedOption]);
+    });
 
     return (
 
-        <div className='optionsmenu_div'>
+        <div className='optionsmenu_div'
+            style={{
+                margin: oculto ? '0px 0px 0px 0px' : '15px 0px'
+            }}
+        >
             
             {
                 layoutType === 'normal' && (
@@ -47,11 +51,11 @@ const OptionsMenu = ({ options , getOption, layoutType, searchOption }) => {
                                 </div>
                             )
                         })}
-                        
-                        <div 
-                            className='optionsmenu_div-sub'
-                        ></div>
 
+                    <div 
+                        className='optionsmenu_div-sub'
+                    ></div> 
+                        
                     </div>
                 )
             } 
@@ -77,7 +81,7 @@ const OptionsMenu = ({ options , getOption, layoutType, searchOption }) => {
                                     </div>
                                 )
                             })}
-                            
+
                             <div 
                                 className='optionsmenu_div-sub'
                             ></div>

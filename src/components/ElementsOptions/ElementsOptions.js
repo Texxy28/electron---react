@@ -15,6 +15,7 @@ const ElementsOptions = () => {
 
     const [selectedOption, setSelectedOption] = useState(options[0])
     const [searchOption, setSearchOption] = useState('')
+    const [oculto, setOculto] = useState(true);
 
     const searchOptions = [
         {
@@ -50,13 +51,58 @@ const ElementsOptions = () => {
             type: 'Graphics',
             listOptions: [
                 {
+                    listType: 'Arrow',
+                    listTypeOptions: [
+                        'graphArrow1',
+                        'graphArrow2',
+                        'graphArrow3'
+                    ]
+                },
+                {
                     listType: 'Circle',
                     listTypeOptions: [
                         'graphCircle1',
                         'graphCircle2',
                         'graphCircle3'
                     ]
-                }
+                },
+                {
+                    listType: 'Line',
+                    listTypeOptions: [
+                        'graphLine1',
+                        'graphLine2',
+                        'graphLine3'
+                    ]
+                },
+            ]
+        },
+        {
+            type: 'Photos',
+            listOptions: [
+                {
+                    listType: 'Arrow',
+                    listTypeOptions: [
+                        'photosArrow1',
+                        'photosArrow2',
+                        'photosArrow3'
+                    ]
+                },
+                {
+                    listType: 'Circle',
+                    listTypeOptions: [
+                        'photosCircle1',
+                        'photosCircle2',
+                        'photosCircle3'
+                    ]
+                },
+                {
+                    listType: 'Line',
+                    listTypeOptions: [
+                        'photosLine1',
+                        'photosLine2',
+                        'photosLine3'
+                    ]
+                },
             ]
         }
     ]
@@ -84,6 +130,10 @@ const ElementsOptions = () => {
         setSearchOption(option)
     }
 
+    const getOculto = (des) => {
+        setOculto(des)
+    }
+
     return (
 
         <div className='elementsoptions_div'>
@@ -95,6 +145,9 @@ const ElementsOptions = () => {
                 white={false}
                 settings={false}
                 getSearchOption={getSearchOption}
+                getOculto={getOculto}
+                oculto={oculto}
+                layoutType={'hidden'}
             />
 
             <OptionsMenu 
@@ -102,6 +155,7 @@ const ElementsOptions = () => {
                 getOption={getOption}
                 layoutType={'hidden'}
                 searchOption={searchOption}
+                oculto={oculto}
             />
 
             <SearchOptions 
@@ -110,6 +164,8 @@ const ElementsOptions = () => {
                 selectedOption={selectedOption}
                 getSearchOption={getSearchOption}
                 layoutType={'hidden'}
+                getOculto={getOculto}
+                oculto={oculto}
             />
 
         </div>

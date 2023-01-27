@@ -17,9 +17,16 @@ aunque no estoy seguro si es la forma más apropiada de llamarla. Como sea, el p
 aparato, tipo practicar y así, por lo que a lo mejor y no se ven muchos cambios aquí, o al menos no tantos como serían en un principio.
 En este pongo hora pero la verdad no recuerdo hora de la anterior entrada. Y si, planeo usar esto como alguna especie de diario.
 
-# 13/01/2023 - 17-56
+# 13/01/2023 - 17:56
 
 Se que dije que usaría esto como diario pero he estado medio distraído, eso sí, no he abandonado este proyecto, aún le tengo ganas.
 Como sea, he estado haciendo muchos cambios últimamente, tampoco son la gran cosa pero me han servido mucho para aprender, 
 que ese es el propósito real de este proyecto. De momento, me mantendré avanzando en esto cuando me entren las ganas,
 si me siento obligado a avanzar con esto, lo terminaré dejando demasiado rápido.
+
+# 26/01/2023 - 19:47
+
+Pues ha pasado tiempo desde la última vez que escribí, he estado ocupado con algunas cosas pero finalmente he podido retomar este
+pequeño proyecto. Bueno, eso es todo, aún no me he aburrido de esto así que segiré por un buen rato, bueno, me metí a un pequeño 
+taller en la universidad, pero es solo los viernes así que no me quitará demasiado tiempo. Hasta la próxima.
+ 
