@@ -10,7 +10,11 @@ const ElementsOptions = () => {
     const options = [
         'All',
         'Graphics',
-        'Photos'
+        'Photos',
+        'Videos',
+        'Audio',
+        'Frames',
+        'Chart'
     ]
 
     const [selectedOption, setSelectedOption] = useState(options[0])
@@ -104,7 +108,123 @@ const ElementsOptions = () => {
                     ]
                 },
             ]
-        }
+        },
+        {
+            type: 'Videos',
+            listOptions: [
+                {
+                    listType: 'Arrow',
+                    listTypeOptions: [
+                        'videosArrow1',
+                        'videosArrow2',
+                        'videosArrow3'
+                    ]
+                },
+                {
+                    listType: 'Circle',
+                    listTypeOptions: [
+                        'videosCircle1',
+                        'videosCircle2',
+                        'videosCircle3'
+                    ]
+                },
+                {
+                    listType: 'Line',
+                    listTypeOptions: [
+                        'videosLine1',
+                        'videosLine2',
+                        'videosLine3'
+                    ]
+                },
+            ]
+        },
+        {
+            type: 'Audio',
+            listOptions: [
+                {
+                    listType: 'Arrow',
+                    listTypeOptions: [
+                        'audioArrow1',
+                        'audioArrow2',
+                        'audioArrow3'
+                    ]
+                },
+                {
+                    listType: 'Circle',
+                    listTypeOptions: [
+                        'audioCircle1',
+                        'audioCircle2',
+                        'audioCircle3'
+                    ]
+                },
+                {
+                    listType: 'Line',
+                    listTypeOptions: [
+                        'audioLine1',
+                        'audioLine2',
+                        'audioLine3'
+                    ]
+                },
+            ]
+        },
+        {
+            type: 'Frames',
+            listOptions: [
+                {
+                    listType: 'Arrow',
+                    listTypeOptions: [
+                        'framesArrow1',
+                        'framesArrow2',
+                        'framesArrow3'
+                    ]
+                },
+                {
+                    listType: 'Circle',
+                    listTypeOptions: [
+                        'framesCircle1',
+                        'framesCircle2',
+                        'framesCircle3'
+                    ]
+                },
+                {
+                    listType: 'Line',
+                    listTypeOptions: [
+                        'framesLine1',
+                        'framesLine2',
+                        'framesLine3'
+                    ]
+                },
+            ]
+        },
+        {
+            type: 'Chart',
+            listOptions: [
+                {
+                    listType: 'Arrow',
+                    listTypeOptions: [
+                        'chartArrow1',
+                        'chartArrow2',
+                        'chartArrow3'
+                    ]
+                },
+                {
+                    listType: 'Circle',
+                    listTypeOptions: [
+                        'chartCircle1',
+                        'chartCircle2',
+                        'chartCircle3'
+                    ]
+                },
+                {
+                    listType: 'Line',
+                    listTypeOptions: [
+                        'chartLine1',
+                        'chartLine2',
+                        'chartLine3'
+                    ]
+                },
+            ]
+        },
     ]
 
     const searchPlaceholders = [
@@ -118,6 +238,22 @@ const ElementsOptions = () => {
         },
         {
             type: 'Photos',
+            placeholder: 'Search Canva photos'
+        },
+        {
+            type: 'Videos',
+            placeholder: 'Search Canva photos'
+        },
+        {
+            type: 'Audio',
+            placeholder: 'Search Canva photos'
+        },
+        {
+            type: 'Frames',
+            placeholder: 'Search Canva photos'
+        },
+        {
+            type: 'Chart',
             placeholder: 'Search Canva photos'
         }
     ]

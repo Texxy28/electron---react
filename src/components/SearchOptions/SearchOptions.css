@@ -47,6 +47,7 @@
   z-index: 1000;
   height: 40px;
   width: 20px;
+  cursor: pointer;
 }
 
 .searchoptions_div-moveLeft {

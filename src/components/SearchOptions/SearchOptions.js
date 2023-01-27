@@ -24,7 +24,7 @@ const SearchOptions = ({ searchOptions, selectedOption, getSearchOption, selecte
 
     const filterByOption = (item) => {
 
-        if (item.listType === selectedSearchOption) {
+        if (item.listType === selectedSearchOption && item.listTypeOptions) {
             return true;
         }
 

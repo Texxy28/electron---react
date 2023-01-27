@@ -6,6 +6,7 @@ import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { RxText } from 'react-icons/rx'
 import { VscFileSubmodule } from 'react-icons/vsc'
 import { IoIosKeypad } from 'react-icons/io'
+import { AiOutlineLeft } from 'react-icons/ai'
 
 import SideBarButtons from '../SideBarButtons/SideBarButtons'
 import OptionsBar from '../OptionsBar/OptionsBar'
@@ -40,7 +41,7 @@ const SideBar = () => {
         }
     ]
 
-    const [selectedItem, setSelectedItem] = useState(items[1].title);
+    const [selectedItem, setSelectedItem] = useState(items[0].title);
 
     return (
 
@@ -64,13 +65,33 @@ const SideBar = () => {
 
             </div>
 
-            <div className='sidebar_div-options'>
+            {
+                selectedItem !== '' && 
+                
+                <div className='sidebar_div-options'>
 
-                <OptionsBar 
-                    selectedItem={selectedItem}
-                />
+                    <OptionsBar 
+                        selectedItem={selectedItem}
+                    />
 
-            </div>
+                </div>
+
+
+            }
+
+            {
+                selectedItem !== '' &&
+
+                <div 
+                    className='sidebar_div_hide'
+                    onClick={() => {
+                        setSelectedItem('')
+                    }}    
+                >
+                    <AiOutlineLeft size={15} />
+                </div>
+
+            }
 
 
         </div>

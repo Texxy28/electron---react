@@ -9,9 +9,43 @@
 
 .optionsmenu_div-div {
   width: 300px;
-  display: grid;
+}
+
+.optionsmenu_div-div::-webkit-scrollbar {
+  display: none;
+}
+
+.optionsmenu_div-move {
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1000;
+  height: 40px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.optionsmenu_div-move:hover svg path {
+  color: #fff;
+}
+
+.optionsmenu_div-moveLeft {
+  top: 119px;
+  left: 0px;
+  background: rgb(2,0,36);
+  background: linear-gradient(270deg, rgba(2,0,36,0) 0%, #252627 50%);
+}
+
+.optionsmenu_div-moveRight {
+  top: 119px;
+  left: 285px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,0) 0%, #252627 50%);
+}
+
+.optionsmenu_div-move svg path {
+  color: #949595;
 }
 
 .optionsmenu_div-option {
@@ -41,7 +75,6 @@
   top: 75px;
   left: 0px;
   border-radius: 10px;
-  transition: transform 0.5s ease, width 1s ease;
   z-index: 20000;
 }
 

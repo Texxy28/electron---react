@@ -4,6 +4,7 @@ import { useState } from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import OptionsMenu from '../OptionsMenu/OptionsMenu'
 import SearchOptions from '../SearchOptions/SearchOptions'
+import DesignResults from '../DesignResults/DesignResults'
 
 const DesignOptions = () => {
 
@@ -26,11 +27,11 @@ const DesignOptions = () => {
                     ]
                 },
                 {
-                    listType: 'Sciense',
+                    listType: 'Science',
                     listTypeOptions: [
-                        'Sciense1',
-                        'Sciense2',
-                        'Sciense3'
+                        'Science1',
+                        'Science2',
+                        'Science3'
                     ]
                 },
                 {
@@ -263,12 +264,49 @@ const DesignOptions = () => {
             type: 'Layout',
             listOptions: [
                 {
-                    listType: 'History',
-                    listTypeOptions: [
-                        'layoutHistory1',
-                        'layoutHistory2',
-                        'layoutHistory3'
-                    ]
+                    listType: 'Quote'
+                },
+                {
+                    listType: 'Agenda'
+                },
+                {
+                    listType: 'Pie chart'
+                },
+                {
+                    listType: 'Video'
+                },
+                {
+                    listType: 'Column'
+                },
+                {
+                    listType: 'Bar chart'
+                },
+                {
+                    listType: 'List'
+                },
+                {
+                    listType: 'Timeline'
+                },
+                {
+                    listType: 'Donut chart'
+                },
+                {
+                    listType: 'Pictogram'
+                },
+                {
+                    listType: 'Line chart'
+                },
+                {
+                    listType: 'Circle photo'
+                },
+                {
+                    listType: 'Area chart'
+                },
+                {
+                    listType: 'Collage'
+                },
+                {
+                    listType: 'Link'
                 }
             ]
         },
@@ -292,6 +330,43 @@ const DesignOptions = () => {
         {
             type: 'Styles',
             placeholder: 'Search styles'
+        }
+    ]
+
+    const designResults = [
+        {
+            type: 'Template',
+            listDesigns: [
+                {
+                    keyWords: ['history', 'presentation'],
+                    rend: 'presentation1'
+                },
+                {
+                    keyWords: ['blue', 'presentation'],
+                    rend: 'presentation2'
+                },
+                {
+                    keyWords: ['science', 'presentation'],
+                    rend: 'presentation3'
+                }
+            ]
+        },
+        {
+            type: 'Layout',
+            listDesigns: [
+                {    
+                    keyWords: ['quote', 'presentation'],
+                    rend: 'presentation1'
+                },
+                {
+                    keyWords: ['blue', 'presentation'],
+                    rend: 'presentation2'
+                },
+                {
+                    keyWords: ['science', 'presentation'],
+                    rend: 'presentation3'
+                }
+            ]
         }
     ]
 
@@ -330,6 +405,12 @@ const DesignOptions = () => {
                 selectedSearchOption={searchOption}
                 selectedOption={selectedOption}
                 getSearchOption={getSearchOption}
+            />
+
+            <DesignResults 
+                selectedOption={selectedOption}
+                searchOption={searchOption}
+                designResults={designResults}
             />
 
         </div>
